@@ -46,4 +46,27 @@ describe("LowCoverage", () => {
       expect(lowCoverage.price).equal(0);
     });
   });
+
+  describe("#_decreasePrice()", function () {
+    it("should update the price correctly when sellIn = 0", () => {
+      const lowCoverage = new LowCoverage("Low Coverage", 0, 7);
+
+      lowCoverage._decreasePrice();
+      expect(lowCoverage.price).equal(5);
+    });
+
+    it("should update the price correctly when sellIn = 4", () => {
+      const lowCoverage = new LowCoverage("Low Coverage", 4, 7);
+
+      lowCoverage._decreasePrice();
+      expect(lowCoverage.price).equal(6);
+    });
+
+    it("should update the price correctly when price reach 0", () => {
+      const lowCoverage = new LowCoverage("Low Coverage", 0, 1);
+
+      lowCoverage._decreasePrice();
+      expect(lowCoverage.price).equal(0);
+    });
+  });
 });

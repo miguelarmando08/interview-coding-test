@@ -13,7 +13,11 @@ describe("CarInsurance", () => {
       ];
 
       const carInsurance = new CarInsurance(products);
+      const emptyCarInsurance = new CarInsurance();
+
       expect(carInsurance.products).equal(products);
+      expect(emptyCarInsurance.products).to.be.an("array");
+      expect(emptyCarInsurance.products.length).equal(0);
     });
   });
 

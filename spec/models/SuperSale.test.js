@@ -46,4 +46,27 @@ describe("SuperSale", () => {
       expect(superSale.price).equal(0);
     });
   });
+
+  describe("#_decreasePrice()", function () {
+    it("should update the price correctly when sellIn = 0", () => {
+      const superSale = new SuperSale("Super Sale", 0, 60);
+
+      superSale._decreasePrice();
+      expect(superSale.price).equal(56);
+    });
+
+    it("should update the price correctly when sellIn = 4", () => {
+      const superSale = new SuperSale("Super Sale", 4, 60);
+
+      superSale._decreasePrice();
+      expect(superSale.price).equal(58);
+    });
+
+    it("should update the price correctly when price reach 0", () => {
+      const superSale = new SuperSale("Super Sale", 0, 2);
+
+      superSale._decreasePrice();
+      expect(superSale.price).equal(0);
+    });
+  });
 });

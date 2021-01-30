@@ -46,4 +46,27 @@ describe("FullCoverage", () => {
       expect(fullCoverage.price).equal(50);
     });
   });
+
+  describe("#_increasePrice()", function () {
+    it("should update the price correctly when sellIn = 0", () => {
+      const fullCoverage = new FullCoverage("Full Coverage", 0, 40);
+
+      fullCoverage._increasePrice();
+      expect(fullCoverage.price).equal(42);
+    });
+
+    it("should update the price correctly when sellIn = 4", () => {
+      const fullCoverage = new FullCoverage("Full Coverage", 4, 40);
+
+      fullCoverage._increasePrice();
+      expect(fullCoverage.price).equal(41);
+    });
+
+    it("should update the price correctly when price reach 50", () => {
+      const fullCoverage = new FullCoverage("Full Coverage", 0, 50);
+
+      fullCoverage._increasePrice();
+      expect(fullCoverage.price).equal(50);
+    });
+  });
 });

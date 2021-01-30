@@ -46,4 +46,27 @@ describe("MediumCoverage", () => {
       expect(mediumCoverage.price).equal(0);
     });
   });
+
+  describe("#_decreasePrice()", function () {
+    it("should update the price correctly when sellIn = 0", () => {
+      const mediumCoverage = new MediumCoverage("Medium Coverage", 0, 7);
+
+      mediumCoverage._decreasePrice();
+      expect(mediumCoverage.price).equal(5);
+    });
+
+    it("should update the price correctly when sellIn = 4", () => {
+      const mediumCoverage = new MediumCoverage("Medium Coverage", 4, 7);
+
+      mediumCoverage._decreasePrice();
+      expect(mediumCoverage.price).equal(6);
+    });
+
+    it("should update the price correctly when price reach 0", () => {
+      const mediumCoverage = new MediumCoverage("Medium Coverage", 0, 1);
+
+      mediumCoverage._decreasePrice();
+      expect(mediumCoverage.price).equal(0);
+    });
+  });
 });

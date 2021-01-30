@@ -66,4 +66,39 @@ describe("SpecialFullCoverage", () => {
       expect(specialFullCoverage.price).equal(0);
     });
   });
+
+  describe("#_increasePrice()", function () {
+    it("should update the price correctly when sellIn = 0", () => {
+      const specialFullCoverage = new SpecialFullCoverage(
+        "Special Full Coverage",
+        0,
+        20
+      );
+
+      specialFullCoverage._increasePrice();
+      expect(specialFullCoverage.price).equal(0);
+    });
+
+    it("should update the price correctly when sellIn = 4", () => {
+      const specialFullCoverage = new SpecialFullCoverage(
+        "Special Full Coverage",
+        4,
+        20
+      );
+
+      specialFullCoverage._increasePrice();
+      expect(specialFullCoverage.price).equal(23);
+    });
+
+    it("should update the price correctly when price > 50", () => {
+      const specialFullCoverage = new SpecialFullCoverage(
+        "Special Full Coverage",
+        15,
+        50
+      );
+
+      specialFullCoverage._increasePrice();
+      expect(specialFullCoverage.price).equal(50);
+    });
+  });
 });
