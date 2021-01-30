@@ -4,7 +4,7 @@
   "description": "ComparaOnline Software Engineer Test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./spec --recursive"
+    "test": "nyc --reporter=text mocha ./spec --recursive"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.20",
+    "nyc": "^15.1.0",
     "sinon": "^9.2.4"
   }
 }
