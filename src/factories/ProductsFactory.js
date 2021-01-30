@@ -1,10 +1,17 @@
+const MediumCoverage = require("../../src/models/MediumCoverage");
+const FullCoverage = require("../../src/models/FullCoverage");
+const LowCoverage = require("../../src/models/LowCoverage");
+const MegaCoverage = require("../../src/models/MegaCoverage");
+const SpecialFullCoverage = require("../../src/models/SpecialFullCoverage");
+const SuperSale = require("../../src/models/SuperSale");
+
 const classesByName = {
-  "Medium Coverage": null,
-  "Full Coverage": null,
-  "Low Coverage": null,
-  "Mega Coverage": null,
-  "Special Full Coverage": null,
-  "Super Sale": null,
+  "Medium Coverage": MediumCoverage,
+  "Full Coverage": FullCoverage,
+  "Low Coverage": LowCoverage,
+  "Mega Coverage": MegaCoverage,
+  "Special Full Coverage": SpecialFullCoverage,
+  "Super Sale": SuperSale,
 };
 
 class ProductsFactory {

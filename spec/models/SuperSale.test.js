@@ -19,7 +19,7 @@ describe("SuperSale", () => {
 
       superSale.updatePrice();
       expect(superSale.sellIn).equal(2);
-      expect(superSale.price).equal(5);
+      expect(superSale.price).equal(4);
     });
 
     it("should update the product correctly at day 5", () => {

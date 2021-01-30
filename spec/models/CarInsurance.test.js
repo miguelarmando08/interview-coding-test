@@ -20,15 +20,19 @@ describe("CarInsurance", () => {
   describe("#updatePrice()", function () {
     it("should update the product prices", () => {
       const products = [
-        sinon.spy(new Product("Product 1", 10, 1), "updatePrice"),
-        sinon.spy(new Product("Product 2", 11, 2), "updatePrice"),
-        sinon.spy(new Product("Product 3", 12, 8), "updatePrice"),
+        new Product("Product 1", 10, 1),
+        new Product("Product 2", 11, 2),
+        new Product("Product 3", 12, 8),
       ];
+
+      const spies = products.map((product) =>
+        sinon.spy(product, "updatePrice")
+      );
 
       const carInsurance = new CarInsurance(products);
       carInsurance.updatePrice();
 
-      products.forEach((product) => {
+      spies.forEach((product) => {
         sinon.assert.calledOnce(product);
       });
     });
