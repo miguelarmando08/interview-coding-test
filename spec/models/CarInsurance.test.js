@@ -1,0 +1,36 @@
+const expect = require("chai").expect;
+const sinon = require("sinon");
+const CarInsurance = require("../../src/models/CarInsurance");
+const Product = require("../../src/models/Product");
+
+describe("CarInsurance", () => {
+  describe("#constructor()", function () {
+    it("should create a CarInsurance with the correct attributes", () => {
+      const products = [
+        new Product("Product 1", 10, 20),
+        new Product("Product 2", 20, 1),
+        new Product("Product 3", 30, 5),
+      ];
+
+      const carInsurance = new CarInsurance(products);
+      expect(carInsurance.products).equal(products);
+    });
+  });
+
+  describe("#updatePrice()", function () {
+    it("should update the product prices", () => {
+      const products = [
+        sinon.spy(new Product("Product 1", 10, 1), "updatePrice"),
+        sinon.spy(new Product("Product 2", 11, 2), "updatePrice"),
+        sinon.spy(new Product("Product 3", 12, 8), "updatePrice"),
+      ];
+
+      const carInsurance = new CarInsurance(products);
+      carInsurance.updatePrice();
+
+      products.forEach((product) => {
+        sinon.assert.calledOnce(product);
+      });
+    });
+  });
+});
