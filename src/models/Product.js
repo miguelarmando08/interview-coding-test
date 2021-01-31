@@ -6,6 +6,10 @@ class Product {
   }
 
   updatePrice() {}
+
+  toString() {
+    return [this.name, `${this.sellIn} days`, this.price];
+  }
 }
 
 module.exports = Product;

@@ -11,4 +11,15 @@ describe("Product", () => {
       expect(myNewProduct.price).equal(50);
     });
   });
+
+  describe("#toString()", function () {
+    it("should return a description of the product", () => {
+      const myNewProduct = new Product("Recharged Insurance", 20, 50);
+      expect(myNewProduct.toString()).deep.to.equal([
+        "Recharged Insurance",
+        "20 days",
+        50,
+      ]);
+    });
+  });
 });
